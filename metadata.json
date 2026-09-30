@@ -1,0 +1,6 @@
+{
+  "name": "AverTrader — Professional Trading Workspace & AI Execution Platform",
+  "description": "AverTrader is an advanced financial workspace and AI-powered execution platform engineered for intelligent market telemetry, automated session management, and institutional portfolio tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

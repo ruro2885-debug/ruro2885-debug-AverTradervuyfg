@@ -1,0 +1,126 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Master Gate & Global Safety Net
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+    // 2. Explicit rules for individual collections to guarantee unrestricted platform operations
+    match /users/{userId} {
+      allow read, write, create, update, delete: if true;
+      match /{document=**} {
+        allow read, write, create, update, delete: if true;
+      }
+    }
+
+    match /traderProfiles/{traderId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /admin_deposits/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /admin_withdrawals/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /withdrawals/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /transactions/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /user_transactions/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /admin_kyc/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /wallets/{userId} {
+      allow read, write, create, update, delete: if true;
+      match /{document=**} {
+        allow read, write, create, update, delete: if true;
+      }
+    }
+
+    match /portfolio/{userId} {
+      allow read, write, create, update, delete: if true;
+      match /{document=**} {
+        allow read, write, create, update, delete: if true;
+      }
+    }
+
+    match /notifications/{notificationId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /support_tickets/{id} {
+      allow read, write, create, update, delete: if true;
+      match /{allPaths=**} {
+        allow read, write, create, update, delete: if true;
+      }
+    }
+
+    match /platform_analytics/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /platform_health/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /system_settings/{id} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /admin_audit_logs/{logId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /linked_wallets/{walletId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /userBonuses/{userId} {
+      allow read, write, create, update, delete: if true;
+      match /{allPaths=**} {
+        allow read, write, create, update, delete: if true;
+      }
+    }
+
+    match /referrals/{referralId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /bonuses/{bonusId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /leaderboard/{userId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /aiPreferences/{userId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /aiSessions/{sessionId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /aiRecommendations/{recId} {
+      allow read, write, create, update, delete: if true;
+    }
+
+    match /events_hub/{eventId=**} {
+      allow read, write, create, update, delete: if true;
+    }
+  }
+}

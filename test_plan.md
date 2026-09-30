@@ -1,0 +1,1 @@
+Rewrite MarketHighlightsPage.tsx
